@@ -136,7 +136,7 @@
                 });
                 
                 // add the checkbox
-                $('#spinner').parent().prepend('&nbsp;<a><img src="checkbox0.png" id="spinnercheckbox" height="18px" width="18px" style="margin-bottom:-3px"/></a>');
+                $('#spinner').parent().prepend('&nbsp;<a><img src="checkbox0.png" id="spinnercheckbox" title="Click to toggle between default and non-default values; right-click to change the default." height="18px" width="18px" style="margin-bottom:-3px"/></a>');
                 function prompt_to_update_default() {
                     if (Number($('#spinner')[0].value) == spinner_default_value) return;
                     $('#spinnerchangeconfirm').html('Permanently replace default value of ' + spinner_default_value + ' with ' + Number($('#spinner')[0].value) + '?');
@@ -185,6 +185,9 @@
                 // disable context menu on spinner buttons and checkboxspinnermenu
                 $('.ui-spinner-button').bind('contextmenu', function() {return false;});
                 $('#checkboxspinnermenu').bind('contextmenu', function() {return false;});
+                
+                // hover for arrows
+                $('.ui-spinner-button').prop('title', 'Click to change value; right-click to change increment/decrement method.');
             });
         </script>
     </head>
