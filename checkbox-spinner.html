@@ -2,6 +2,7 @@
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+        <script src="jquery.longpress.js"></script>
         <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/smoothness/jquery-ui.min.css"/>
         <title>Power Spinner Tool</title>
         <!-- checkbox part based on graphics from http://www.csscheckbox.com/download-upload.php?id=2707 -->
@@ -135,6 +136,8 @@
                     }
                 });
                 
+                $('#spinner').longpress(function() {alert('longclick')});
+                
                 // add the checkbox
                 $('#spinner').parent().prepend('&nbsp;<a><img src="checkbox0.png" id="spinnercheckbox" title="Click to toggle between default and non-default values; right-click to change the default." height="18px" width="18px" style="margin-bottom:-3px"/></a>');
                 function prompt_to_update_default() {
@@ -162,6 +165,7 @@
                     event.preventDefault();
                     prompt_to_update_default();
                 });
+                $('#spinnercheckbox').longpress(prompt_to_update_default);
                 //$('#spinnercheckbox').bind('contextmenu', function() {return false;});
                 $('#spinnercheckbox').parent().click(function(event) {
                     if (event.which == 1) {
