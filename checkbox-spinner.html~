@@ -9,8 +9,7 @@
         <!-- checkbox part based on graphics from http://www.csscheckbox.com/download-upload.php?id=2707 -->
         <script>
             $(function() {
-                $('#spinner').PowerSpinner();
-                $('#spinner2').PowerSpinner();
+                $('#spinner').PowerSpinner()
             });
         </script>
     </head>

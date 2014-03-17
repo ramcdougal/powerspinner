@@ -1,0 +1,6 @@
+TODO:
+
+- replace graphics with SVG, or preload. This will prevent lags while the checked box loads.
+- should only ever have one menu visible at a time
+- long press on text field should pop up arrows' right-click menu (currently displays an alert)
+- menus should appear above text, not shift text

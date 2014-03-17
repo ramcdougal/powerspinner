@@ -150,7 +150,7 @@ $.fn.PowerSpinner = function () {
                         at: 'right bottom',
                         of: this
                     });
-                    $(document).on('click', function () {
+                    $(document).one('click', function () {
                         menu.hide();
                     });
                 } else if (event.which == 1) {
