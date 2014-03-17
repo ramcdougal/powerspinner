@@ -145,13 +145,19 @@ $.fn.PowerSpinner = function () {
             spin: function (event, ui) {
                 event.preventDefault();
                 if (event.which == 3) {
+                    // if a menu is open, then close it
+                    if ($.fn.PowerSpinner.open_menu != undefined) {
+                        $.fn.PowerSpinner.open_menu.hide();
+                    }
                     var menu = $('#checkboxspinnermenu'+cbs_id).show().position({
                         my: 'left top',
                         at: 'right bottom',
                         of: this
                     });
+                    $.fn.PowerSpinner.open_menu = menu;
                     $(document).on('click', function () {
                         menu.hide();
+                        $.fn.PowerSpinner.open_menu = undefined;
                     });
                 } else if (event.which == 1) {
                     var new_value = ui.value;
@@ -249,3 +255,4 @@ $.fn.PowerSpinner = function () {
 };
 
 $.fn.PowerSpinner.spinner_id = 0;
+$.fn.PowerSpinner.open_menu = undefined;
