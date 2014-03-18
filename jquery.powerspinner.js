@@ -3,7 +3,7 @@ $.fn.PowerSpinner = function () {
 	var cbs_id = $.fn.PowerSpinner.spinner_id;
 	
 	var menu2 = 
-			"<ul style='display:none; width: 6em;' id='checkboxspinnermenu"+cbs_id+"'>"+
+			"<ul style='z-index:999;display:none; width: 6em;' id='checkboxspinnermenu"+cbs_id+"'>"+
             "<li><a>Res</a></li>"+
             "<li><a>* 10</a></li>" +
             "<li><a>* 10^.1</a></li>" +
@@ -131,9 +131,9 @@ $.fn.PowerSpinner = function () {
     function update_spinner_checkbox(spinner_id) {
         var same = Number($('#' + spinner_id)[0].value) == spinner_default_value;
         if (same) {
-            $('#spinnercheckbox' + cbs_id).prop('src', 'checkbox0.png');
+            $('#spinnercheckbox' + cbs_id).prop('src', 'powerspinner/checkbox0.png');
         } else {
-            $('#spinnercheckbox' + cbs_id).prop('src', 'checkbox1.png');
+            $('#spinnercheckbox' + cbs_id).prop('src', 'powerspinner/checkbox1.png');
         }
         if (!same) {
             spinner_last_nondefault = $('#' + spinner_id)[0].value;
@@ -175,7 +175,7 @@ $.fn.PowerSpinner = function () {
         $('#' + spinner_id).longpress(function () { alert('longclick') });
 
         // add the checkbox
-        $('#' + spinner_id).parent().prepend('&nbsp;<a><img src="checkbox0.png" id="spinnercheckbox' + cbs_id + '" title="Click to toggle between default and non-default values; right-click to change the default." height="18px" width="18px" style="margin-bottom:-3px"/></a>');
+        $('#' + spinner_id).parent().prepend('&nbsp;<a><img src="powerspinner/checkbox0.png" id="spinnercheckbox' + cbs_id + '" title="Click to toggle between default and non-default values; right-click to change the default." height="18px" width="18px" style="margin-bottom:-3px"/></a>');
         function prompt_to_update_default() {
             if (Number($('#' + spinner_id)[0].value) == spinner_default_value) return;
             $('#spinnerchangeconfirm').html('Permanently replace default value of ' + spinner_default_value + ' with ' + Number($('#' + spinner_id)[0].value) + '?');
